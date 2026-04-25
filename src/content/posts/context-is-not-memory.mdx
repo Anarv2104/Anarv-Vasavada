@@ -1,0 +1,49 @@
+export const meta = {
+  title: "Context is not memory",
+  category: "Research",
+  date: "Jan 2026",
+  readTime: "5 min",
+  excerpt: "The biggest misconception in modern LLM systems — and why getting this wrong breaks every multi-agent architecture you build on top of it.",
+}
+
+Every week I see a new multi-agent framework that calls its context window "memory."
+
+It is not memory. And building on that misconception creates systems that are fragile in ways their builders never anticipate.
+
+## What context actually is
+
+Context is the information that exists within a single inference call. When you send a message to a language model, everything in that request — the system prompt, the conversation history, the retrieved documents — is context. When the call ends, the context ends. Nothing persists.
+
+This is not a limitation. It is how the architecture works by design. The model has no internal state that carries over between calls. Every request starts fresh.
+
+## What memory actually is
+
+Memory is information that persists across interactions and can be selectively retrieved when relevant.
+
+When a human remembers something, they are not replaying their entire life experience. They are retrieving a specific piece of information that was stored and indexed in a way that makes it accessible later.
+
+Real memory has four properties that context does not: persistence across sessions, selective retrieval based on relevance, the ability to update and revise stored information, and decay and prioritization over time.
+
+Context has none of these. It is a stateless snapshot, not a persistent store.
+
+## Why this matters for multi-agent systems
+
+When you build a multi-agent system and mistake context for memory, you make a predictable set of errors.
+
+You assume agents know things they have never been told in the current session. You build coordination patterns that depend on shared state that does not actually exist. You debug failures that look random but are actually caused by the absence of genuine persistence. You scale the system and watch it fail in ways that worked fine in small tests.
+
+I made all of these mistakes building Octopus. The coordination layer kept breaking in ways that only made sense once I understood that I was routing context, not memory, between agents.
+
+## The actual solution
+
+Genuine memory for AI agents requires an external persistence layer. Something that stores information after each session, indexes it for retrieval, and surfaces relevant pieces when a new session begins.
+
+This is the problem Memron.ai is built to solve. Not extending the context window — that is a workaround, not a solution. Building the actual memory infrastructure that makes agents stateful across time.
+
+## The practical implication
+
+Before you build any multi-agent architecture, ask yourself one question: what happens when this agent starts a new session with no context from the previous one?
+
+If the answer is that it breaks — you do not have a memory system. You have a context window you are pretending is one.
+
+Fix that first. Everything else depends on it.

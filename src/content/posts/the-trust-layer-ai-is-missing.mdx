@@ -1,0 +1,43 @@
+export const meta = {
+  title: "The trust layer AI systems are missing",
+  category: "Security",
+  date: "Mar 2026",
+  readTime: "6 min",
+  excerpt: "When agents interact with agents at scale, identity matters. Nobody is building the verification layer.",
+}
+
+When two AI agents interact, neither one knows if the other is who it claims to be.
+
+This is not a hypothetical problem. This is the current state of every multi-agent system running in production today.
+
+## The identity vacuum
+
+In traditional software, identity is solved at the infrastructure layer. You have auth tokens, certificates, signed requests. The system knows who is talking to it before it does anything.
+
+In multi-agent AI, none of this exists. When agent A sends a message to agent B, agent B has no way to verify that the message actually came from agent A, that agent A has the authority to make that request, or that the message has not been modified in transit.
+
+This is not a minor gap. This is a fundamental security failure waiting to happen at scale.
+
+## What happens without trust infrastructure
+
+Consider a simple scenario. You have an orchestrator agent that delegates tasks to specialist agents. The orchestrator sends an instruction to the data agent: fetch the user's financial records.
+
+Now ask yourself: does the data agent verify that this instruction actually came from the authorized orchestrator? In almost every system I have seen — no. It does not. It just executes.
+
+This means any agent in your network that gets compromised can impersonate the orchestrator. Any injected message that looks like it came from a trusted source will be treated as trusted.
+
+## Why I built Orynth
+
+Orynth is my answer to this. A decentralized AI identity and trust registry.
+
+The core idea is simple: before any agent acts on an instruction, it should be able to verify the identity of the sender, the authority of the sender to issue that instruction, and the integrity of the message itself.
+
+Orynth provides the infrastructure to do this without requiring a centralized authority that becomes a single point of failure.
+
+## This is not optional at scale
+
+The more agents you add, the larger the attack surface. A two-agent system with no trust layer is a minor risk. A hundred-agent system with no trust layer is a disaster waiting for a trigger.
+
+Security in AI systems cannot be an afterthought. It has to be designed into the infrastructure from the beginning — the same way you would never build a web application without authentication.
+
+The trust layer is that authentication. And almost nobody is building it.

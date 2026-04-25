@@ -1,0 +1,51 @@
+export const meta = {
+  title: "What 'AI infrastructure' actually means in 2026",
+  category: "Infrastructure",
+  date: "Nov 2025",
+  readTime: "6 min",
+  excerpt: "Everyone says they're building AI infrastructure. Most are building wrappers. Here is what the real coordination layer looks like.",
+}
+
+Half the companies pitching AI infrastructure are building API wrappers.
+
+A wrapper is not infrastructure. It is a convenience layer. It adds value — sometimes significant value — but it is not load-bearing. Remove it and the underlying system still works. Remove infrastructure and the system collapses.
+
+## What makes something infrastructure
+
+Infrastructure has three properties that wrappers do not.
+
+It operates at a layer below the application. The applications depend on it — not the other way around. Infrastructure does not know what applications are built on top of it. It just provides a guaranteed capability.
+
+It is load-bearing. If it fails, everything above it fails. This is not a bug. It is the definition. Infrastructure is what you cannot remove without the system breaking.
+
+It scales horizontally without architectural changes. You can add more capacity without redesigning the system. The interface stays stable as the load changes.
+
+Most things being called AI infrastructure right now fail at least two of these three tests.
+
+## What real AI infrastructure looks like
+
+The actual infrastructure layer for AI systems has four components that most teams have not built yet.
+
+Coordination infrastructure: how multiple agents communicate, delegate, and resolve conflicts. Not a framework — a protocol. Something that works the same way regardless of what agents are built on top of it.
+
+Observability infrastructure: how you trace what agents did, why they did it, and what they influenced. Not logging — tracing. The difference matters. Inflion is my contribution to this layer.
+
+Trust infrastructure: how agents verify identity and authority before acting on instructions. Not authentication in the traditional sense — a new primitive designed for agent-to-agent interaction. Orynth is my answer to this.
+
+Memory infrastructure: how agents maintain state and context across sessions. Not context window management — actual persistence with intelligent retrieval. Memron.ai is where I am taking this.
+
+## Why most teams skip this
+
+Infrastructure is invisible when it works. The value is negative — it prevents failures rather than enabling features. This makes it hard to justify in a roadmap that is measured by features shipped.
+
+The result is everyone builds on sand. Fast in the short term. Catastrophic when the system grows beyond the assumptions it was built on.
+
+## The forcing function
+
+The forcing function is production at scale.
+
+Toy systems do not need real infrastructure. A demo with one agent making ten calls does not need observability, trust verification, or persistent memory. It needs to look good in a video.
+
+A system with fifty agents making ten thousand decisions per hour needs all of it. And retrofitting infrastructure into a system that was not designed for it is one of the most expensive things you can do in engineering.
+
+The teams that build the infrastructure layer first will be the ones whose systems survive production. The rest will rebuild from scratch — if they get another chance.

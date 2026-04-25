@@ -1,0 +1,47 @@
+export const meta = {
+  title: "You cannot govern what you cannot trace",
+  category: "Systems",
+  date: "Apr 2026",
+  readTime: "7 min",
+  excerpt: "The observability gap in multi-agent AI is not a technical problem. It is a design philosophy problem.",
+}
+
+The first time I tried to debug a multi-agent system in production, I realized I had no idea what had happened.
+
+The agent had made a decision. The decision was wrong. And there was no trace of why.
+
+## The gap nobody talks about
+
+Most teams building multi-agent AI focus entirely on capability — can the agent do the task? They test in controlled environments, measure accuracy on benchmarks, and ship when the numbers look good.
+
+What they skip is the layer between the model and the outcome.
+
+> A system you cannot trace is a system you do not own.
+
+This is not a philosophical statement. It is a practical one. If you cannot reconstruct what your agent did, why it did it, and what it influenced downstream — you are not running a system. You are running a black box with consequences.
+
+## Why I built Inflion
+
+Inflion started as a question: in a network of agents, who influenced what?
+
+It sounds simple. It is not. When agents pass context to each other, influence propagates in ways that are not obvious from the outputs alone. An early agent's framing shapes every downstream decision. A single corrupted input can cascade through the entire network before anyone notices.
+
+Inflion maps this. It quantifies influence propagation across agent networks, surfaces systemic risks before they compound, and gives you the observability layer that most teams never build.
+
+## What observability actually means here
+
+Monitoring tells you that something happened.
+
+Observability tells you why it happened and what it affected.
+
+For AI systems, this distinction matters more than in traditional software. The model itself is part of the system. Its internal state is not directly inspectable. So observability has to work differently — through the traces agents leave in their outputs, their context, and their influence on downstream agents.
+
+This is the problem Inflion is built to solve. Not monitoring. Understanding.
+
+## What this means for governance
+
+You cannot govern what you cannot trace.
+
+AI governance is not a policy problem. It is an infrastructure problem. Before you can set rules about what your agents are allowed to do, you need to be able to see what they are actually doing. Most organizations are trying to write governance frameworks for systems they have zero observability into.
+
+This is the gap. And it is not closing on its own.
