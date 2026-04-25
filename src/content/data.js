@@ -8,7 +8,7 @@ export const PERSONAL = {
   sub:       "I build systems designed to operate without supervision and fail without silence.",
   location:  "Ahmedabad, India",
   email:     "anarv.work@gmail.com",
-  resumeUrl: "/resume.pdf",
+  resumeUrl: "/Anarv_Vasavada_Resume.pdf",
 }
 
 export const SOCIALS = [
