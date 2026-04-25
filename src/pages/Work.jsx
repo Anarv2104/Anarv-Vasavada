@@ -39,7 +39,7 @@ const EXPERIENCE = [
   {
     role:   'Artificial Intelligence Intern',
     org:    'Upsquare Technologies India',
-    period: 'Jan 2026 — present',
+    period: 'Jan 2026 — April 2026',
     desc:   'Building and debugging computer vision pipelines for real-world environments. YOLO-based model training, fine-tuning, and evaluation. Integrating AI inference workflows with backend services and web-based pipelines.',
   },
   {
