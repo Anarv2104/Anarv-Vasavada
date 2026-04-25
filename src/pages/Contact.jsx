@@ -92,17 +92,17 @@ export default function Contact() {
             <div key={i} style={{ width: 9, height: 9, borderRadius: '50%', background: f, boxShadow: `0 0 0 0.5px ${s}` }} />
           ))}
           <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '10px', color: C.muted, marginLeft: 6 }}>
-            ~/intelligence-session
+            ~/Book a ZERO Session →
           </span>
         </div>
         <div style={{ padding: '16px 20px 20px' }}>
           <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '13px', marginBottom: 8 }}>
             <span style={{ color: C.green }}>anarv</span>
-            <span style={{ color: C.muted }}>@anarv.dev:~$ </span>
+            <span style={{ color: C.muted }}>@intelligence:~$ </span>
             <span style={{ color: C.white }}>init session --strategic --30min</span>
           </div>
           <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '12px', color: C.sub, marginBottom: 16, lineHeight: 1.8 }}>
-            {'>'} serious about building AI infrastructure?<br />
+            {'>'} got something worth building or breaking through?<br />
             {'>'} let's think through it together_
           </div>
           <a href="https://cal.com/anarv" style={{
