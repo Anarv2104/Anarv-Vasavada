@@ -98,12 +98,12 @@ export default function Contact() {
         <div style={{ padding: '16px 20px 20px' }}>
           <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '13px', marginBottom: 8 }}>
             <span style={{ color: C.green }}>anarv</span>
-            <span style={{ color: C.muted }}>@intelligence:~$ </span>
+            <span style={{ color: C.muted }}>@ZERO:~$ </span>
             <span style={{ color: C.white }}>init session --strategic --30min</span>
           </div>
           <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '12px', color: C.sub, marginBottom: 16, lineHeight: 1.8 }}>
             {'>'} got something worth building or breaking through?<br />
-            {'>'} let's think through it together_
+            {'>'} let's think through it together...
           </div>
           <a href="https://cal.com/anarv" style={{
             display: 'inline-block',
