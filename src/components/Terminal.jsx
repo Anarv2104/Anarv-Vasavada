@@ -16,7 +16,7 @@ const CMD = {
     { t: 'kv', k: 'focus',    v: 'AI Observability · Multi-Agent · Security', c: C.white },
     { t: 'kv', k: 'status',   v: 'Open to compelling problems',            c: C.green },
     { t: 'gap' },
-   { t: 'raw', s: "Type 'help' to explore.  Say 'hey zero, <question>' to ask anything.", c: C.muted },
+    { t: 'raw', s: "Type 'help' to explore.  Say 'hey zero, <question>' to ask anything.", c: C.muted },
   ],
   ls: [
     { t: 'raw', s: "drwxr-xr-x  systems/      things I've built",        c: C.blue   },
@@ -69,7 +69,7 @@ const CMD = {
       ai_ml:     ['PyTorch', 'LangChain', 'TensorFlow', 'OpenCV', 'HuggingFace'],
       frontend:  ['React', 'Next.js', 'Tailwind CSS'],
       backend:   ['FastAPI', 'Node.js', 'Flask', 'Express'],
-      infra:     ['Docker', 'Azure', 'NGINX', 'CI/CD'],
+      infra:     ['Docker', 'Azure', 'NGINX', 'GitHub Actions'],
     }},
   ],
   'ls writing/': [
@@ -118,32 +118,36 @@ const CMD = {
   'git log --oneline': [
     { t: 'section', s: '// commit history' },
     { t: 'gap' },
-    { t: 'raw', s: 'a3f9c1b  (HEAD)  Inflion published on PyPI. Influence tracing is now infrastructure.', c: C.green },
-    { t: 'raw', s: 'f2d88a0          Octopus shipped. Multi-agent orchestration at scale.',               c: C.white },
-    { t: 'raw', s: '9c12ee3          Orynth initialized. AI needs verifiable identity.',                  c: C.white },
-    { t: 'raw', s: '7b44e11          Memron.ai started. Context is not memory. Built the fix.',      c: C.white },
-    { t: 'raw', s: 'c441902          House of Starts. Co-creating what the ecosystem was missing.',             c: C.white },
-    { t: 'raw', s: '3a9f002          First research paper accepted. The thesis is forming.',              c: C.sub   },
-    { t: 'raw', s: 'b9e1100          Started asking questions the field had not answered yet.',           c: C.sub   },
+    { t: 'raw', s: 'a3f9c1b  (HEAD)  Inflion → PyPI. You cannot govern what you cannot trace.', c: C.green },
+    { t: 'raw', s: 'f2d88a0          Octopus built. Coordination is harder than intelligence.',   c: C.white },
+    { t: 'raw', s: '9c12ee3          Orynth initialized. Identity is the missing layer.',         c: C.white },
+    { t: 'raw', s: '7b44e11          Upsquare Technologies. AI that works in the real world.',    c: C.white },
+    { t: 'raw', s: 'c441902          House of Starts. Co-creating what the ecosystem was missing.', c: C.white },
+    { t: 'raw', s: '3a9f002          Research paper in progress. The thesis has evidence now.',   c: C.sub   },
+    { t: 'raw', s: 'b9e1100          Decided to build the layer most teams skip entirely.',       c: C.sub   },
     { t: 'raw', s: '0000001          init: Ahmedabad, India. Decided to build what does not exist yet.', c: C.muted },
     { t: 'gap' },
     { t: 'raw', s: '8 commits · 0 reverts · all systems operational', c: C.muted },
   ],
   neofetch: [
     { t: 'gap' },
-    { t: 'raw', s: '     anarv@intelligence-layer', c: C.cyan  },
-    { t: 'raw', s: '     ─────────────────────────', c: C.muted },
-    { t: 'kv',  k: 'title',    v: 'Intelligence Architect',          c: C.white  },
-    { t: 'kv',  k: 'location', v: 'Ahmedabad, India',                c: C.white  },
-    { t: 'kv',  k: 'focus',    v: 'Observability · Security · AI',   c: C.cyan   },
-    { t: 'kv',  k: 'os',       v: 'macOS Sequoia 15.4',              c: C.white  },
-    { t: 'kv',  k: 'shell',    v: 'zsh + oh-my-zsh',                 c: C.white  },
-    { t: 'kv',  k: 'editor',   v: 'VS Code + Cursor',                c: C.white  },
-    { t: 'kv',  k: 'font',     v: 'JetBrains Mono',                  c: C.white  },
-    { t: 'kv',  k: 'systems',  v: 'Inflion · Octopus · Orynth',      c: C.blue   },
-    { t: 'kv',  k: 'research', v: 'arxiv paper incoming',            c: C.purple },
-    { t: 'kv',  k: 'mode',     v: 'founder · builder · researcher',  c: C.green  },
-    { t: 'kv',  k: 'coffee',   v: 'always',                          c: C.yellow },
+    { t: 'raw', s: '  anarv@zero — Intelligence Architect', c: C.cyan  },
+    { t: 'raw', s: '  ─────────────────────────────────────', c: C.muted },
+    { t: 'gap' },
+    { t: 'kv',  k: 'position',  v: 'Intelligence Architect · Founder · Researcher', c: C.white  },
+    { t: 'kv',  k: 'location',  v: 'Ahmedabad, India',                              c: C.white  },
+    { t: 'kv',  k: 'thesis',    v: 'A system you cannot trace is a system you do not own.', c: C.cyan },
+    { t: 'gap' },
+    { t: 'kv',  k: 'systems',   v: 'Inflion · Octopus · Orynth · Memron.ai',       c: C.blue   },
+    { t: 'kv',  k: 'research',  v: 'multi-agent observability (arxiv soon)',         c: C.purple },
+    { t: 'kv',  k: 'studying',  v: 'governance · security · OSINT · tracing',      c: C.cyan   },
+    { t: 'gap' },
+    { t: 'kv',  k: 'os',        v: 'macOS Sequoia',                                 c: C.white  },
+    { t: 'kv',  k: 'editor',    v: 'VS Code + Antigravity',                         c: C.white  },
+    { t: 'kv',  k: 'shell',     v: 'zsh + oh-my-zsh',                               c: C.white  },
+    { t: 'kv',  k: 'font',      v: 'JetBrains Mono',                                c: C.white  },
+    { t: 'kv',  k: 'ai',        v: 'Z.E.R.O. — Zoned Execution & Resource Orchestrator', c: C.green },
+    { t: 'kv',  k: 'coffee',    v: 'always',                                        c: C.yellow },
     { t: 'gap' },
     { t: 'raw', s: '  ▓▓  ▓▓  ▓▓  ▓▓  ▓▓  ▓▓  ▓▓', c: C.blue  },
     { t: 'raw', s: '  ▓▓  ▓▓  ▓▓  ▓▓  ▓▓  ▓▓  ▓▓', c: C.green },
@@ -155,20 +159,20 @@ const CMD = {
   help: [
     { t: 'raw', s: 'available commands', c: C.cyan },
     { t: 'gap' },
-    { t: 'help', cmd: 'whoami',             desc: 'Identity'              },
-    { t: 'help', cmd: 'ls',                desc: 'List filesystem'       },
-    { t: 'help', cmd: 'cat about.md',      desc: 'About me'              },
-    { t: 'help', cmd: 'ls systems/',       desc: 'Systems I\'ve built'   },
-    { t: 'help', cmd: 'cat stack.json',    desc: 'Tech stack'            },
-    { t: 'help', cmd: 'ls writing/',       desc: 'Writing & signal'      },
-    { t: 'help', cmd: 'cat philosophy.md', desc: 'Operating principles'  },
-    { t: 'help', cmd: 'ssh contact',       desc: 'Reach out'             },
-    { t: 'help', cmd: 'resume',            desc: 'View resume'           },
-    { t: 'help', cmd: 'download resume',   desc: 'Download resume PDF'   },
-    { t: 'help', cmd: 'git log',           desc: 'Career timeline 🥚'    },
-    { t: 'help', cmd: 'neofetch',          desc: 'System info 🥚'        },
-    { t: 'help', cmd: 'hey zero, <question>', desc: 'Ask ZERO anything'  },
-    { t: 'help', cmd: 'clear',             desc: 'Clear screen'          },
+    { t: 'help', cmd: 'whoami',               desc: 'Identity'              },
+    { t: 'help', cmd: 'ls',                   desc: 'List filesystem'       },
+    { t: 'help', cmd: 'cat about.md',         desc: 'About me'              },
+    { t: 'help', cmd: 'ls systems/',          desc: "Systems I've built"    },
+    { t: 'help', cmd: 'cat stack.json',       desc: 'Tech stack'            },
+    { t: 'help', cmd: 'ls writing/',          desc: 'Writing & signal'      },
+    { t: 'help', cmd: 'cat philosophy.md',    desc: 'Operating principles'  },
+    { t: 'help', cmd: 'ssh contact',          desc: 'Reach out'             },
+    { t: 'help', cmd: 'resume',               desc: 'View resume'           },
+    { t: 'help', cmd: 'download resume',      desc: 'Download resume PDF'   },
+    { t: 'help', cmd: 'git log',              desc: 'Career timeline 🥚'    },
+    { t: 'help', cmd: 'neofetch',             desc: 'System info 🥚'        },
+    { t: 'help', cmd: 'hey zero, <question>', desc: 'Ask ZERO anything'     },
+    { t: 'help', cmd: 'clear',                desc: 'Clear screen'          },
     { t: 'gap' },
     { t: 'raw', s: 'Unknown commands route to ZERO automatically.', c: C.muted },
   ],
@@ -208,6 +212,7 @@ const Terminal = forwardRef(function Terminal({ initialCommand = null }, ref) {
   const [histIdx, setHistIdx]     = useState(-1)
   const [blink, setBlink]         = useState(true)
   const [aiLoading, setAiLoading] = useState(false)
+  const [cursorPos, setCursorPos] = useState(0)
   const inputRef  = useRef(null)
   const bottomRef = useRef(null)
   const navigate  = useNavigate()
@@ -222,12 +227,12 @@ const Terminal = forwardRef(function Terminal({ initialCommand = null }, ref) {
     return () => clearInterval(id)
   }, [])
 
-  // Focus input on mount without scrolling page
+  // Focus on mount without scrolling
   useEffect(() => {
     inputRef.current?.focus({ preventScroll: true })
   }, [])
 
-  // Scroll inside terminal box only — not the page
+  // Scroll inside terminal only
   useEffect(() => {
     if (bottomRef.current) {
       const container = bottomRef.current.closest('[data-terminal-scroll]')
@@ -240,7 +245,7 @@ const Terminal = forwardRef(function Terminal({ initialCommand = null }, ref) {
     const lower   = trimmed.toLowerCase()
     if (!trimmed) return
 
-    if (lower === 'clear') { setHistory([]); setInput(''); return }
+    if (lower === 'clear') { setHistory([]); setInput(''); setCursorPos(0); return }
 
     // Resume download
     if (lower === 'download resume' || lower === 'download pdf' || lower === 'open resume') {
@@ -255,6 +260,7 @@ const Terminal = forwardRef(function Terminal({ initialCommand = null }, ref) {
       setCmdHist(h => [trimmed, ...h])
       setHistIdx(-1)
       setInput('')
+      setCursorPos(0)
       return
     }
 
@@ -264,37 +270,39 @@ const Terminal = forwardRef(function Terminal({ initialCommand = null }, ref) {
       setCmdHist(h => [trimmed, ...h])
       setHistIdx(-1)
       setInput('')
+      setCursorPos(0)
       return
     }
 
     // Navigation shortcuts
-if (lower === 'cd systems')  { navigate('/systems'); return }
-if (lower === 'cd writing')  { navigate('/signal');  return }
-if (lower === 'cd signal')   { navigate('/signal');  return }
-if (lower === 'cd contact')  { navigate('/connect'); return }
-if (lower === 'cd connect')  { navigate('/connect'); return }
-if (lower === 'cd uses')     { navigate('/stack');   return }
-if (lower === 'cd stack')    { navigate('/stack');   return }
-if (lower === 'cd now')      { navigate('/now');     return }
-if (lower === 'cd trace')    { navigate('/now');     return }
+    if (lower === 'cd systems')  { navigate('/systems'); return }
+    if (lower === 'cd writing')  { navigate('/signal');  return }
+    if (lower === 'cd signal')   { navigate('/signal');  return }
+    if (lower === 'cd contact')  { navigate('/connect'); return }
+    if (lower === 'cd connect')  { navigate('/connect'); return }
+    if (lower === 'cd uses')     { navigate('/stack');   return }
+    if (lower === 'cd stack')    { navigate('/stack');   return }
+    if (lower === 'cd now')      { navigate('/now');     return }
+    if (lower === 'cd trace')    { navigate('/now');     return }
 
     const isAi = lower.startsWith('zero ') || lower.startsWith('hey zero,') || lower.startsWith('hey zero ') || lower.startsWith('ai ') || lower.startsWith('ask ')
     const isUnknown = !CMD[lower] && !isAi && lower !== 'clear'
 
     if (isAi || isUnknown) {
       const question = (() => {
-  if (lower.startsWith('hey zero,')) return trimmed.slice(trimmed.indexOf(',') + 1).trim()
-  if (lower.startsWith('hey zero ')) return trimmed.slice(9).trim()
-  if (lower.startsWith('zero '))     return trimmed.slice(5).trim()
-  if (lower.startsWith('ai '))       return trimmed.slice(3).trim()
-  if (lower.startsWith('ask '))      return trimmed.slice(4).trim()
-  return trimmed
-})()
-      const thinkId  = Date.now()
+        if (lower.startsWith('hey zero,')) return trimmed.slice(trimmed.indexOf(',') + 1).trim()
+        if (lower.startsWith('hey zero ')) return trimmed.slice(9).trim()
+        if (lower.startsWith('zero '))     return trimmed.slice(5).trim()
+        if (lower.startsWith('ai '))       return trimmed.slice(3).trim()
+        if (lower.startsWith('ask '))      return trimmed.slice(4).trim()
+        return trimmed
+      })()
+      const thinkId = Date.now()
       setHistory(h => [...h, { cmd: trimmed, out: [{ t: 'ai-thinking' }], isAi: true, id: thinkId }])
       setCmdHist(h => [trimmed, ...h])
       setHistIdx(-1)
       setInput('')
+      setCursorPos(0)
       setAiLoading(true)
       try {
         const answer = await callAI(question)
@@ -303,7 +311,6 @@ if (lower === 'cd trace')    { navigate('/now');     return }
         setHistory(h => h.map(e => e.id === thinkId ? { ...e, out: [{ t: 'raw', s: 'AI connection failed. Try again.', c: C.red }] } : e))
       } finally {
         setAiLoading(false)
-        // Refocus after AI responds — removes the click-to-type friction
         setTimeout(() => inputRef.current?.focus({ preventScroll: true }), 50)
       }
       return
@@ -313,6 +320,7 @@ if (lower === 'cd trace')    { navigate('/now');     return }
     setCmdHist(h => [trimmed, ...h])
     setHistIdx(-1)
     setInput('')
+    setCursorPos(0)
   }
 
   // Boot command
@@ -323,26 +331,57 @@ if (lower === 'cd trace')    { navigate('/now');     return }
   }, [])
 
   function handleKey(e) {
-    if (e.key === 'Enter' && !aiLoading) { runCmd(input) }
-    else if (e.key === 'ArrowUp') {
+    if (e.key === 'Enter' && !aiLoading) {
+      runCmd(input)
+    } else if (e.key === 'ArrowUp') {
       e.preventDefault()
       const ni = Math.min(histIdx + 1, cmdHist.length - 1)
-      setHistIdx(ni); setInput(cmdHist[ni] || '')
+      const val = cmdHist[ni] || ''
+      setHistIdx(ni)
+      setInput(val)
+      setCursorPos(val.length)
+      setTimeout(() => {
+        if (inputRef.current) {
+          inputRef.current.selectionStart = val.length
+          inputRef.current.selectionEnd = val.length
+        }
+      }, 0)
     } else if (e.key === 'ArrowDown') {
       e.preventDefault()
       const ni = Math.max(histIdx - 1, -1)
-      setHistIdx(ni); setInput(ni === -1 ? '' : cmdHist[ni] || '')
+      const val = ni === -1 ? '' : cmdHist[ni] || ''
+      setHistIdx(ni)
+      setInput(val)
+      setCursorPos(val.length)
+      setTimeout(() => {
+        if (inputRef.current) {
+          inputRef.current.selectionStart = val.length
+          inputRef.current.selectionEnd = val.length
+        }
+      }, 0)
+    } else {
+      // For all other keys (including arrow left/right), sync cursor position after keypress
+      setTimeout(() => {
+        if (inputRef.current) {
+          setCursorPos(inputRef.current.selectionStart ?? 0)
+        }
+      }, 0)
     }
   }
 
   return (
-    <div style={{
-      background: C.surface,
-      border: `1px solid ${C.border}`,
-      borderRadius: 8,
-      overflow: 'hidden',
-      boxShadow: '0 8px 32px rgba(0,0,0,0.6)',
-    }}>
+    <div
+      style={{
+        background: C.surface,
+        border: `1px solid ${C.border}`,
+        borderRadius: 8,
+        overflow: 'hidden',
+        boxShadow: '0 8px 32px rgba(0,0,0,0.6)',
+        // Prevent content dragging/selection outside input
+        userSelect: 'none',
+        WebkitUserSelect: 'none',
+      }}
+    >
       {/* Chrome */}
       <div style={{
         background: '#1a1a1a',
@@ -404,24 +443,35 @@ if (lower === 'cd trace')    { navigate('/now');     return }
             <input
               ref={inputRef}
               value={input}
-              onChange={e => setInput(e.target.value)}
+              onChange={e => {
+                setInput(e.target.value)
+                setCursorPos(e.target.selectionStart ?? e.target.value.length)
+              }}
+              onClick={() => {
+                if (inputRef.current) setCursorPos(inputRef.current.selectionStart ?? 0)
+              }}
+              onKeyUp={() => {
+                if (inputRef.current) setCursorPos(inputRef.current.selectionStart ?? 0)
+              }}
               onKeyDown={handleKey}
               disabled={aiLoading}
               spellCheck={false}
               autoComplete="off"
-              placeholder={aiLoading ? 'waiting for AI...' : ''}
+              placeholder={aiLoading ? 'waiting for ZERO...' : ''}
               style={{
                 background: 'transparent', border: 'none', outline: 'none',
                 color: C.white, fontSize: '13px',
                 fontFamily: "'JetBrains Mono', monospace",
                 width: '100%', caretColor: 'transparent',
                 opacity: aiLoading ? 0.4 : 1,
+                userSelect: 'text',
+                WebkitUserSelect: 'text',
               }}
             />
             {!aiLoading && (
               <span style={{
                 position: 'absolute',
-                left: `calc(${input.length} * 7.82px)`,
+                left: `calc(${cursorPos} * 7.82px)`,
                 width: 7, height: 15,
                 background: blink ? C.green : 'transparent',
                 pointerEvents: 'none',
