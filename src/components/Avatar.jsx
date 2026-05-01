@@ -3,6 +3,7 @@ export default function Avatar() {
     <img
       src="/anarv.jpeg"
       alt="Anarv Vasavada"
+      className="profile-avatar"
       style={{
         width: 88,
         height: 88,

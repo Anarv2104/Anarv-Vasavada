@@ -9,26 +9,429 @@ body {
   color: #e2e2e2;
   font-family: 'JetBrains Mono', monospace;
   -webkit-font-smoothing: antialiased;
+  /* Prevent horizontal scroll on mobile */
+  overflow-x: hidden;
 }
 
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: #222222; border-radius: 2px; }
 ::selection { background: #8cc55a33; }
+
 a { color: inherit; text-decoration: none; }
 button { cursor: pointer; font-family: 'JetBrains Mono', monospace; }
 input { font-family: 'JetBrains Mono', monospace; }
 
-/* ── Responsive ───────────────────────────────── */
-@media (max-width: 768px) {
+/* ── Breakpoint tokens ─────────────────────────
+   mobile:  < 480px   (phones)
+   tablet:  480-768px (large phones, small tablets)
+   ipad:    768-1024px (iPads, tablets)
+   desktop: > 1024px  (default, what we built)
+─────────────────────────────────────────────── */
 
-  /* Nav — hide labels, show just icons */
-  nav .nav-links {
-    gap: 0;
+/* ── Mobile base (phones < 480px) ─────────────── */
+@media (max-width: 480px) {
+  html { font-size: 14px; }
+
+  /* Tighten background grid on small screens */
+  body {
+    background-size: 24px 24px;
+  }
+}
+
+/* ── Tablet (480px - 768px) ───────────────────── */
+@media (min-width: 480px) and (max-width: 768px) {
+  html { font-size: 15px; }
+
+  body {
+    background-size: 32px 32px;
+  }
+}
+
+/* ── iPad / large tablet (768px - 1024px) ──────── */
+@media (min-width: 768px) and (max-width: 1024px) {
+  html { font-size: 15px; }
+}
+
+/* ── Utility: hide on mobile ──────────────────── */
+@media (max-width: 768px) {
+  .desktop-only { display: none !important; }
+}
+
+/* ── Utility: hide on desktop ─────────────────── */
+@media (min-width: 769px) {
+  .mobile-only { display: none !important; }
+}
+
+/* ── Nav responsive ───────────────────────────── */
+@media (max-width: 768px) {
+  nav {
+    padding: 0 16px !important;
+    height: 48px !important;
+  }
+}
+
+/* ── Page container responsive ────────────────── */
+@media (max-width: 480px) {
+  .page-root {
+    padding: 28px 16px 0 !important;
+  }
+}
+
+@media (min-width: 480px) and (max-width: 768px) {
+  .page-root {
+    padding: 36px 20px 0 !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .page-root {
+    padding: 40px 32px 0 !important;
+    max-width: 100% !important;
+  }
+}
+
+/* ── Terminal responsive ──────────────────────── */
+@media (max-width: 480px) {
+  .terminal-output {
+    min-height: 280px !important;
+    max-height: 420px !important;
+    padding: 12px 14px 8px !important;
+    font-size: 12px !important;
   }
 
-  /* Page padding */
-  .page-container {
-    padding: 24px 16px 0;
+  .terminal-quick {
+    padding: 6px 14px 10px !important;
+    gap: 4px !important;
+  }
+
+  .terminal-quick button {
+    font-size: 10px !important;
+    padding: 2px 7px !important;
+  }
+}
+
+@media (min-width: 480px) and (max-width: 768px) {
+  .terminal-output {
+    min-height: 300px !important;
+    max-height: 460px !important;
+    font-size: 12px !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .terminal-output {
+    min-height: 340px !important;
+    max-height: 500px !important;
+  }
+}
+
+/* ── Profile card responsive ──────────────────── */
+@media (max-width: 480px) {
+  .profile-card {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 16px !important;
+  }
+
+  .profile-avatar {
+    width: 72px !important;
+    height: 72px !important;
+  }
+
+  .profile-name {
+    font-size: 20px !important;
+  }
+}
+
+/* ── ZERO hint bar responsive ─────────────────── */
+@media (max-width: 480px) {
+  .zero-bar {
+    padding: 10px 12px !important;
+  }
+
+  .zero-bar button {
+    font-size: 10px !important;
+    padding: 3px 8px !important;
+  }
+}
+
+/* ── Work page grid responsive ────────────────── */
+@media (max-width: 600px) {
+  .misc-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ── Nav links on tablet ──────────────────────── */
+@media (max-width: 900px) {
+  .nav-links a {
+    padding: 6px 8px !important;
+    font-size: 11px !important;
+  }
+}
+
+/* ── Typography scale on mobile ───────────────── */
+@media (max-width: 480px) {
+  .page-title {
+    font-size: 18px !important;
+  }
+
+  .page-subtitle {
+    font-size: 11px !important;
+  }
+
+  .philosophy-quote {
+    font-size: 13px !important;
+  }
+}
+
+/* Desktop nav links */
+.desktop-nav {
+  display: flex;
+}
+
+/* Hamburger button */
+.mobile-only {
+  display: none;
+}
+
+/* On mobile: hide desktop nav, show hamburger */
+@media (max-width: 768px) {
+  .desktop-nav {
+    display: none !important;
+  }
+
+  .mobile-only {
+    display: flex !important;
+  }
+}
+
+/* On tablet: shrink nav link padding */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .desktop-nav a {
+    padding: 6px 8px !important;
+    font-size: 11px !important;
+  }
+}
+
+/* ── Home page mobile ─────────────────────────── */
+@media (max-width: 480px) {
+  .profile-card {
+    flex-direction: column !important;
+    gap: 16px !important;
+    margin-bottom: 28px !important;
+  }
+
+  .profile-name {
+    font-size: 20px !important;
+  }
+
+  .zero-bar button {
+    font-size: 10px !important;
+    padding: 3px 8px !important;
+  }
+
+  .philosophy-quote {
+    font-size: 13px !important;
+    line-height: 1.8 !important;
+  }
+}
+
+@media (min-width: 480px) and (max-width: 768px) {
+  .profile-card {
+    gap: 18px !important;
+  }
+
+  .philosophy-quote {
+    font-size: 14px !important;
+  }
+}
+
+/* ── Terminal responsive ──────────────────────── */
+@media (max-width: 480px) {
+  .terminal-output {
+    min-height: 260px !important;
+    max-height: 400px !important;
+    padding: 12px 14px 8px !important;
+    font-size: 11px !important;
+  }
+
+  .terminal-quick {
+    padding: 6px 12px 10px !important;
+    gap: 4px !important;
+  }
+
+  .terminal-quick button {
+    font-size: 10px !important;
+    padding: 2px 7px !important;
+  }
+}
+
+@media (min-width: 480px) and (max-width: 768px) {
+  .terminal-output {
+    min-height: 300px !important;
+    max-height: 460px !important;
+  }
+
+  .terminal-quick button {
+    font-size: 10px !important;
+    padding: 3px 8px !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .terminal-output {
+    min-height: 320px !important;
+    max-height: 480px !important;
+  }
+}
+
+/* ── Work page mobile ─────────────────────────── */
+@media (max-width: 600px) {
+  .misc-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Experience period pushes to new line on tiny screens */
+  .experience-period {
+    margin-left: 0 !important;
+    width: 100%;
+  }
+}
+
+/* ── Writing page mobile ──────────────────────── */
+@media (max-width: 480px) {
+  /* Filter buttons smaller on mobile */
+  .signal-tags button {
+    font-size: '10px' !important;
+    padding: 2px 8px !important;
+  }
+
+  /* Article title wraps cleanly */
+  .article-title {
+    font-size: 13px !important;
+    line-height: 1.5 !important;
+  }
+
+  /* Excerpt max width full on mobile */
+  .article-excerpt {
+    max-width: 100% !important;
+  }
+}
+
+/* ── Uses / Stack page mobile ─────────────────── */
+@media (max-width: 480px) {
+  .stack-row {
+    flex-direction: column !important;
+    gap: 2px !important;
+    margin-bottom: 8px !important;
+  }
+
+  .stack-key {
+    min-width: unset !important;
+    font-size: 10px !important;
+    color: #5b9cf6 !important;
+  }
+}
+
+@media (min-width: 480px) and (max-width: 768px) {
+  .stack-key {
+    min-width: 110px !important;
+  }
+}
+
+/* ── Now page mobile ──────────────────────────── */
+@media (max-width: 480px) {
+  .now-meta {
+    flex-direction: column !important;
+    gap: 8px !important;
+    margin-bottom: 24px !important;
+  }
+}
+
+@media (min-width: 480px) and (max-width: 768px) {
+  .now-meta {
+    gap: 16px !important;
+    flex-wrap: wrap !important;
+  }
+}
+
+/* ── Contact page mobile ──────────────────────── */
+@media (max-width: 480px) {
+  .contact-link-row {
+    flex-direction: column !important;
+    gap: 2px !important;
+    line-height: 1.6 !important;
+    margin-bottom: 12px !important;
+  }
+
+  .contact-link-key {
+    min-width: unset !important;
+    font-size: 10px !important;
+    color: #888888 !important;
+  }
+}
+
+@media (min-width: 480px) and (max-width: 768px) {
+  .contact-link-key {
+    min-width: 80px !important;
+  }
+}
+
+/* ── Post / blog page mobile ──────────────────── */
+@media (max-width: 480px) {
+  .post-title {
+    font-size: 18px !important;
+    line-height: 1.4 !important;
+  }
+
+  .post-body p {
+    font-size: 12px !important;
+    line-height: 1.8 !important;
+    max-width: 100% !important;
+  }
+
+  .post-body h2 {
+    font-size: 14px !important;
+  }
+
+  .post-body blockquote {
+    padding-left: 14px !important;
+    font-size: 12px !important;
+  }
+
+  .post-body pre {
+    font-size: 11px !important;
+    padding: 12px 14px !important;
+    overflow-x: auto !important;
+  }
+}
+
+@media (min-width: 480px) and (max-width: 768px) {
+  .post-title {
+    font-size: 20px !important;
+  }
+
+  .post-body p {
+    max-width: 100% !important;
+  }
+}
+
+/* ── Global page container mobile ────────────── */
+@media (max-width: 480px) {
+  div[style*="maxWidth: 760"] {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+}
+
+/* ── Avatar responsive ────────────────────────── */
+@media (max-width: 480px) {
+  .profile-avatar {
+    width: 68px !important;
+    height: 68px !important;
   }
 }

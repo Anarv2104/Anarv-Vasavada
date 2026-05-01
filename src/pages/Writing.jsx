@@ -17,20 +17,24 @@ export default function Writing() {
   return (
     <div style={{ maxWidth: 760, margin: '0 auto', padding: '48px 24px 0' }}>
 
+      {/* Header */}
       <div style={{ marginBottom: 28, paddingBottom: 20, borderBottom: `1px solid ${C.border}` }}>
         <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11px', color: C.muted, marginBottom: 6 }}>
           <span style={{ color: C.green }}>➜</span>{'  '}
           <span style={{ color: C.purple }}>~</span>
           <span style={{ color: C.muted }}> $ ls signal/</span>
         </div>
-        <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '22px', fontWeight: 700, color: C.white, marginBottom: 5 }}>
+        <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '22px', fontWeight: 700, color: C.white, marginBottom: 5 }}
+          className="page-title">
           signal/
         </div>
-        <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '12px', color: C.sub }}>
+        <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '12px', color: C.sub }}
+          className="page-subtitle">
           Signal over noise. I publish when the thinking is done, not when it starts.
         </div>
       </div>
 
+      {/* Category filter */}
       <div style={{ display: 'flex', gap: 6, marginBottom: 24, flexWrap: 'wrap' }}>
         {tags.map(t => (
           <button
@@ -61,12 +65,14 @@ export default function Writing() {
         ))}
       </div>
 
+      {/* Empty state */}
       {filtered.length === 0 && (
         <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '13px', color: C.muted, padding: '20px 0' }}>
           No articles in this category yet.
         </div>
       )}
 
+      {/* Article list */}
       {filtered.map((a, i) => (
         <div
           key={i}
@@ -85,6 +91,7 @@ export default function Writing() {
             fontSize: '14px', fontWeight: 600,
             color: hoveredIdx === i ? C.cyan : C.white,
             transition: 'color 0.12s', marginBottom: 5,
+            lineHeight: 1.4,
           }}>
             {a.title}
           </div>
@@ -112,7 +119,7 @@ function Philosophy() {
       <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11px', color: C.muted, letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: 12 }}>
         // on writing
       </div>
-      <blockquote style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '15px', color: C.sub, lineHeight: 1.9, maxWidth: 540, margin: 0, fontWeight: 300, borderLeft: `2px solid ${C.green}`, paddingLeft: 20 }}>
+      <blockquote className="philosophy-quote" style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '15px', color: C.sub, lineHeight: 1.9, maxWidth: 540, margin: 0, fontWeight: 300, borderLeft: `2px solid ${C.green}`, paddingLeft: 20 }}>
         "Clarity is a technical skill.<br />
         If you cannot explain it in one sentence,<br />
         you have not finished{' '}

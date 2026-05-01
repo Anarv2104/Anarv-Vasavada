@@ -65,10 +65,12 @@ export default function Work() {
           <span style={{ color: C.purple }}>~</span>
           <span style={{ color: C.muted }}> $ ls -la systems/</span>
         </div>
-        <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '22px', fontWeight: 700, color: C.white, marginBottom: 5 }}>
+        <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '22px', fontWeight: 700, color: C.white, marginBottom: 5 }}
+          className="page-title">
           systems/
         </div>
-        <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '12px', color: C.sub }}>
+        <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '12px', color: C.sub }}
+          className="page-subtitle">
           Infrastructure I've built. Systems that operate, not demos that impress. Hover to preview.
         </div>
       </div>
@@ -105,7 +107,7 @@ export default function Work() {
           onMouseOver={e => e.currentTarget.style.paddingLeft = '8px'}
           onMouseOut={e => e.currentTarget.style.paddingLeft = '0'}
         >
-          <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 4, fontFamily: "'JetBrains Mono', monospace" }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 4, fontFamily: "'JetBrains Mono', monospace", flexWrap: 'wrap' }}>
             <span style={{ fontSize: '10px', color: C.muted }}>{'{}'}</span>
             <span style={{ fontSize: '14px', fontWeight: 600, color: C.white }}>{p.name}</span>
             <span style={{
@@ -129,7 +131,7 @@ export default function Work() {
       <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11px', color: C.muted, letterSpacing: '0.06em', marginTop: 40, marginBottom: 12 }}>
         // experiments &amp; tools
       </div>
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10, marginBottom: 8 }}>
+      <div className="misc-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10, marginBottom: 8 }}>
         {MISC_PROJECTS.map((m, i) => (
           <a key={i} href={m.url} target="_blank" rel="noreferrer" style={{
             border: `1px dashed ${C.border}`, borderRadius: 6, padding: '14px 16px',
@@ -143,7 +145,7 @@ export default function Work() {
               <div style={{ fontFamily: "'JetBrains Mono', monospace", fontWeight: 600, color: C.white, marginBottom: 2, fontSize: '13px' }}>{m.name}</div>
               <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11px', color: C.muted }}>{m.desc}</div>
             </div>
-            <span style={{ color: C.muted, fontSize: '12px' }}>↗</span>
+            <span style={{ color: C.muted, fontSize: '12px', flexShrink: 0, marginLeft: 8 }}>↗</span>
           </a>
         ))}
       </div>
@@ -159,7 +161,7 @@ function Philosophy() {
       <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11px', color: C.muted, letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: 12 }}>
         // on building
       </div>
-      <blockquote style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '15px', color: C.sub, lineHeight: 1.9, maxWidth: 540, margin: 0, fontWeight: 300, borderLeft: `2px solid ${C.green}`, paddingLeft: 20 }}>
+      <blockquote className="philosophy-quote" style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '15px', color: C.sub, lineHeight: 1.9, maxWidth: 540, margin: 0, fontWeight: 300, borderLeft: `2px solid ${C.green}`, paddingLeft: 20 }}>
         "Intelligence without infrastructure<br />
         is not a product. It is a{' '}
         <span style={{ color: C.white, fontWeight: 500 }}>prototype</span>."

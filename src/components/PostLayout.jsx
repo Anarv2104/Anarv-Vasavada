@@ -7,6 +7,7 @@ export default function PostLayout({ meta, children }) {
   return (
     <div style={{ maxWidth: 760, margin: '0 auto', padding: '48px 24px 0' }}>
 
+      {/* Back button */}
       <button
         onClick={() => navigate('/signal')}
         style={{
@@ -15,6 +16,7 @@ export default function PostLayout({ meta, children }) {
           background: 'transparent', border: 'none',
           cursor: 'pointer', marginBottom: 32,
           display: 'flex', alignItems: 'center', gap: 6,
+          padding: 0,
         }}
         onMouseEnter={e => e.currentTarget.style.color = C.green}
         onMouseLeave={e => e.currentTarget.style.color = C.muted}
@@ -22,11 +24,12 @@ export default function PostLayout({ meta, children }) {
         ← signal/
       </button>
 
+      {/* Post header */}
       <div style={{ marginBottom: 32, paddingBottom: 24, borderBottom: `1px solid ${C.border}` }}>
         <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11px', color: C.purple, marginBottom: 10 }}>
           {meta?.category}
         </div>
-        <h1 style={{
+        <h1 className="post-title" style={{
           fontFamily: "'JetBrains Mono', monospace",
           fontSize: '24px', fontWeight: 700,
           color: C.white, lineHeight: 1.4,
@@ -39,7 +42,8 @@ export default function PostLayout({ meta, children }) {
         </div>
       </div>
 
-      <div style={{ paddingBottom: 60 }}>
+      {/* Post body */}
+      <div className="post-body" style={{ paddingBottom: 60 }}>
         {children}
       </div>
 

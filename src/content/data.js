@@ -149,11 +149,11 @@ export const USES = [
       { k: "theme",    v: "Tokyo Night"        },
     ],
   },
-  {
-  label: "// ai agents",
+{
+  label: "// ai agents & tools",
   items: [
-    { k: "coding",    v: "Claude, Cursor, GitHub Copilot" },
-    { k: "research",  v: "Perplexity, ChatGPT"           },
+    { k: "coding",    v: "Claude, Codex, GitHub Copilot" },
+    { k: "research",  v: "Perplexity, ChatGPT, Gemini, Claude.ai" },
     { k: "terminal",  v: "Claude Code"                   },
   ],
 },

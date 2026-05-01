@@ -221,18 +221,15 @@ const Terminal = forwardRef(function Terminal({ initialCommand = null }, ref) {
     run: (cmd) => runCmd(cmd)
   }))
 
-  // Cursor blink
   useEffect(() => {
     const id = setInterval(() => setBlink(b => !b), 530)
     return () => clearInterval(id)
   }, [])
 
-  // Focus on mount without scrolling
   useEffect(() => {
     inputRef.current?.focus({ preventScroll: true })
   }, [])
 
-  // Scroll inside terminal only
   useEffect(() => {
     if (bottomRef.current) {
       const container = bottomRef.current.closest('[data-terminal-scroll]')
@@ -247,7 +244,6 @@ const Terminal = forwardRef(function Terminal({ initialCommand = null }, ref) {
 
     if (lower === 'clear') { setHistory([]); setInput(''); setCursorPos(0); return }
 
-    // Resume download
     if (lower === 'download resume' || lower === 'download pdf' || lower === 'open resume') {
       const a = document.createElement('a')
       a.href = '/Anarv_Vasavada_Resume.pdf'
@@ -258,23 +254,17 @@ const Terminal = forwardRef(function Terminal({ initialCommand = null }, ref) {
         { t: 'raw', s: 'Done.', c: C.muted },
       ]}])
       setCmdHist(h => [trimmed, ...h])
-      setHistIdx(-1)
-      setInput('')
-      setCursorPos(0)
+      setHistIdx(-1); setInput(''); setCursorPos(0)
       return
     }
 
-    // Git log aliases
     if (lower === 'git log' || lower === 'git log --oneline' || lower === 'log') {
       setHistory(h => [...h, { cmd: trimmed, out: CMD['git log --oneline'] }])
       setCmdHist(h => [trimmed, ...h])
-      setHistIdx(-1)
-      setInput('')
-      setCursorPos(0)
+      setHistIdx(-1); setInput(''); setCursorPos(0)
       return
     }
 
-    // Navigation shortcuts
     if (lower === 'cd systems')  { navigate('/systems'); return }
     if (lower === 'cd writing')  { navigate('/signal');  return }
     if (lower === 'cd signal')   { navigate('/signal');  return }
@@ -300,9 +290,7 @@ const Terminal = forwardRef(function Terminal({ initialCommand = null }, ref) {
       const thinkId = Date.now()
       setHistory(h => [...h, { cmd: trimmed, out: [{ t: 'ai-thinking' }], isAi: true, id: thinkId }])
       setCmdHist(h => [trimmed, ...h])
-      setHistIdx(-1)
-      setInput('')
-      setCursorPos(0)
+      setHistIdx(-1); setInput(''); setCursorPos(0)
       setAiLoading(true)
       try {
         const answer = await callAI(question)
@@ -318,12 +306,9 @@ const Terminal = forwardRef(function Terminal({ initialCommand = null }, ref) {
 
     setHistory(h => [...h, { cmd: trimmed, out: CMD[lower] || notFound(trimmed) }])
     setCmdHist(h => [trimmed, ...h])
-    setHistIdx(-1)
-    setInput('')
-    setCursorPos(0)
+    setHistIdx(-1); setInput(''); setCursorPos(0)
   }
 
-  // Boot command
   useEffect(() => {
     const timer = setTimeout(() => runCmd(initialCommand || 'whoami'), 400)
     return () => clearTimeout(timer)
@@ -337,9 +322,7 @@ const Terminal = forwardRef(function Terminal({ initialCommand = null }, ref) {
       e.preventDefault()
       const ni = Math.min(histIdx + 1, cmdHist.length - 1)
       const val = cmdHist[ni] || ''
-      setHistIdx(ni)
-      setInput(val)
-      setCursorPos(val.length)
+      setHistIdx(ni); setInput(val); setCursorPos(val.length)
       setTimeout(() => {
         if (inputRef.current) {
           inputRef.current.selectionStart = val.length
@@ -350,9 +333,7 @@ const Terminal = forwardRef(function Terminal({ initialCommand = null }, ref) {
       e.preventDefault()
       const ni = Math.max(histIdx - 1, -1)
       const val = ni === -1 ? '' : cmdHist[ni] || ''
-      setHistIdx(ni)
-      setInput(val)
-      setCursorPos(val.length)
+      setHistIdx(ni); setInput(val); setCursorPos(val.length)
       setTimeout(() => {
         if (inputRef.current) {
           inputRef.current.selectionStart = val.length
@@ -360,11 +341,8 @@ const Terminal = forwardRef(function Terminal({ initialCommand = null }, ref) {
         }
       }, 0)
     } else {
-      // For all other keys (including arrow left/right), sync cursor position after keypress
       setTimeout(() => {
-        if (inputRef.current) {
-          setCursorPos(inputRef.current.selectionStart ?? 0)
-        }
+        if (inputRef.current) setCursorPos(inputRef.current.selectionStart ?? 0)
       }, 0)
     }
   }
@@ -377,12 +355,11 @@ const Terminal = forwardRef(function Terminal({ initialCommand = null }, ref) {
         borderRadius: 8,
         overflow: 'hidden',
         boxShadow: '0 8px 32px rgba(0,0,0,0.6)',
-        // Prevent content dragging/selection outside input
         userSelect: 'none',
         WebkitUserSelect: 'none',
       }}
     >
-      {/* Chrome */}
+      {/* Chrome bar */}
       <div style={{
         background: '#1a1a1a',
         borderBottom: `1px solid ${C.border}`,
@@ -405,9 +382,10 @@ const Terminal = forwardRef(function Terminal({ initialCommand = null }, ref) {
         </span>
       </div>
 
-      {/* Output */}
+      {/* Output area */}
       <div
         data-terminal-scroll
+        className="terminal-output"
         onClick={() => inputRef.current?.focus({ preventScroll: true })}
         style={{
           padding: '16px 20px 8px',
@@ -483,11 +461,14 @@ const Terminal = forwardRef(function Terminal({ initialCommand = null }, ref) {
       </div>
 
       {/* Quick commands */}
-      <div style={{
-        padding: '8px 20px 12px',
-        borderTop: `1px solid ${C.border}`,
-        display: 'flex', gap: 6, flexWrap: 'wrap',
-      }}>
+      <div
+        className="terminal-quick"
+        style={{
+          padding: '8px 20px 12px',
+          borderTop: `1px solid ${C.border}`,
+          display: 'flex', gap: 6, flexWrap: 'wrap',
+        }}
+      >
         {QUICK.map(cmd => (
           <button key={cmd}
             onClick={() => { if (!aiLoading) { runCmd(cmd); inputRef.current?.focus({ preventScroll: true }) } }}
